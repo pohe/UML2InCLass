@@ -55,5 +55,27 @@ namespace PizzaLibrary.Services
                 Console.WriteLine(menuItem);
             }
         }
+
+        public MenuItem MostExpensivePizza()
+        {
+            if(_menuItemList== null || _menuItemList.Count == 0)
+            {
+                return null;
+            }
+            MenuItem mostExpensive = new MenuItem();
+            mostExpensive.Price = 0;//Er default 0
+            foreach(MenuItem menuItem in _menuItemList)
+            {
+                if (menuItem.TheMenuType == MenuType.PIZZECLASSSICHE 
+                    || menuItem.TheMenuType == MenuType.PIZZESPECIALI  
+                    && menuItem.Price > mostExpensive.Price)
+                {
+                    mostExpensive = menuItem;
+                }
+
+            }
+            return mostExpensive;
+        }
+
     }
 }

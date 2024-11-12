@@ -11,9 +11,12 @@ namespace PizzaLibrary.Models
     public class MenuItem : IMenuItem
     {
         private static int _counter=0;
-        private int _no; 
+        private int _no;
 
-
+        public MenuItem()
+        {
+            
+        }
         public MenuItem(string name, double price, string description, MenuType menuType)
         {
             Name = name;
