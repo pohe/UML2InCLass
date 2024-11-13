@@ -10,7 +10,7 @@ namespace ConsoleMenu24.Menu
 {
     public class UserMenu
     {
-        private static string mainMenuChoices = "\t1.Vis Pizzamenu\n\t2.Vis Kunder\n\t3.Add Customer\n\t3.Add Pizza\n\tQ.Afslut\n\n\tIndtast valg:";
+        private static string mainMenuChoices = "\t1.Vis Pizzamenu\n\t2.Vis Kunder\n\t3.Add Customer\n\t4.Add Pizza\n\tQ.Afslut\n\n\tIndtast valg:";
 
         private CustomerRepository _customerRepository = new CustomerRepository();
         private MenuItemRepository _menuItemRepository = new MenuItemRepository();

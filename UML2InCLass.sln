@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UML2InCLass", "UML2InCLass\UML2InCLass.csproj", "{572B3056-D509-4A2F-B67E-56E2BEF9CDCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UML2InCLass", "UML2InCLass\UML2InCLass.csproj", "{572B3056-D509-4A2F-B67E-56E2BEF9CDCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaLibrary", "PizzaLibrary\PizzaLibrary.csproj", "{CD7C2817-20B4-4235-A94B-45787638DDFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaLibrary", "PizzaLibrary\PizzaLibrary.csproj", "{CD7C2817-20B4-4235-A94B-45787638DDFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMenu", "ConsoleMenu\ConsoleMenu.csproj", "{5BBBBDFD-05AB-4528-B5A8-8F4B07E6EFE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleMenu", "ConsoleMenu\ConsoleMenu.csproj", "{5BBBBDFD-05AB-4528-B5A8-8F4B07E6EFE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMenu24", "ConsoleMenu24\ConsoleMenu24.csproj", "{306DBAFE-A250-4C1C-9B92-9F09BACC8D30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleMenu24", "ConsoleMenu24\ConsoleMenu24.csproj", "{306DBAFE-A250-4C1C-9B92-9F09BACC8D30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMLRazor", "UMLRazor\UMLRazor.csproj", "{295646EE-116F-4CC2-92EC-380D20B8FCCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{306DBAFE-A250-4C1C-9B92-9F09BACC8D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{306DBAFE-A250-4C1C-9B92-9F09BACC8D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{306DBAFE-A250-4C1C-9B92-9F09BACC8D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{295646EE-116F-4CC2-92EC-380D20B8FCCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{295646EE-116F-4CC2-92EC-380D20B8FCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{295646EE-116F-4CC2-92EC-380D20B8FCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{295646EE-116F-4CC2-92EC-380D20B8FCCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
