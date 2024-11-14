@@ -18,6 +18,11 @@ namespace PizzaLibrary.Models
         public string Mobile { get; set; }
         public string Name { get; set; }
 
+        public Customer()
+        {
+            _counter++;
+            _id = _counter;
+        }
         public Customer(string name, string mobile, string address)
         {
             _counter++;
