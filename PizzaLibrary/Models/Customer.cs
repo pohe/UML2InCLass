@@ -1,6 +1,8 @@
 ﻿using PizzaLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
@@ -16,6 +18,8 @@ namespace PizzaLibrary.Models
         public bool ClubMember { get; set; }
         public int Id { get { return _id; } set { _id = value; } }
         public string Mobile { get; set; }
+
+        [Required(ErrorMessage = "Write you name"), MaxLength(30), DisplayName("Customer name")]
         public string Name { get; set; }
 
         public Customer()

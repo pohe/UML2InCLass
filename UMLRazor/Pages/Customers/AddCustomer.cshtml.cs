@@ -23,6 +23,10 @@ namespace UMLRazor.Pages.Customers
 
         public IActionResult OnPost()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             _repo.AddCustomer(Customer);
             return RedirectToPage("ShowCustomers");
         }
