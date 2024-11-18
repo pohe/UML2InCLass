@@ -19,16 +19,20 @@ namespace PizzaLibrary.Models
         public int Id { get { return _id; } set { _id = value; } }
         public string Mobile { get; set; }
 
-        [Required(ErrorMessage = "Write you name"), MaxLength(30), DisplayName("Customer name")]
+        [Required(ErrorMessage = "Write your name"), MaxLength(30), DisplayName("Customer name")]
         public string Name { get; set; }
+
+        public string CustomerImage { get; set; }
 
         public Customer()
         {
+            CustomerImage = "default.jpeg";
             _counter++;
             _id = _counter;
         }
         public Customer(string name, string mobile, string address)
         {
+            CustomerImage = "default.jpeg";
             _counter++;
             _id = _counter;
             Name = name;

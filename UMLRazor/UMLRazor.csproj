@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Pages\MenuItems\" />
+    <Folder Include="wwwroot\images\customerImages\" />
   </ItemGroup>
 
 </Project>
