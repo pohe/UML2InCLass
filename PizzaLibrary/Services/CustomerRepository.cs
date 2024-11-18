@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using PizzaLibrary.Data;
@@ -62,6 +63,17 @@ namespace PizzaLibrary.Services
             }
         }
 
+        public Customer? GetCustomerById(int id)
+        {
+            foreach(var cus in _customers.Values)
+            {
+                if (cus.Id == id)
+                    return cus;
+            }
+            return null;
+            
+        }
+
         public void RemoveCustomer(string mobile)
         {
             if (mobile != null && _customers.ContainsKey(mobile))
@@ -86,6 +98,14 @@ namespace PizzaLibrary.Services
                 returnString = customer.Name;
             }
             return returnString;
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            if (customer != null && _customers.ContainsKey(customer.Mobile) )
+            {
+                _customers[customer.Mobile] = customer;
+            }
         }
 
     }

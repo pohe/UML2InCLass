@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleMenu", "ConsoleMenu\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleMenu24", "ConsoleMenu24\ConsoleMenu24.csproj", "{306DBAFE-A250-4C1C-9B92-9F09BACC8D30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMLRazor", "UMLRazor\UMLRazor.csproj", "{295646EE-116F-4CC2-92EC-380D20B8FCCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMLRazor", "UMLRazor\UMLRazor.csproj", "{295646EE-116F-4CC2-92EC-380D20B8FCCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

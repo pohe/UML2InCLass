@@ -14,7 +14,7 @@ namespace PizzaLibrary.Models
         private static int _counter = 0; 
         public string Address { get; set;}
         public bool ClubMember { get; set; }
-        public int Id { get { return _id; } }
+        public int Id { get { return _id; } set { _id = value; } }
         public string Mobile { get; set; }
         public string Name { get; set; }
 

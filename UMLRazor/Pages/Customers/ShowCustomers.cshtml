@@ -29,7 +29,7 @@
                 <td>@item.Address</td>
                 <td>@item.Mobile</td>
                 <td><a asp-page="EditCustomer" asp-route-id="@item.Id">Edit</a></td>
-                <td><a asp-page="DeleteCustomer" asp-route-deleteId="@item.Id">Delete</a></td>
+                <td><a asp-page="DeleteCustomer" asp-route-deleteMobile="@item.Mobile">Delete</a></td>
             </tr>
         }
     </tbody>
