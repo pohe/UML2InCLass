@@ -14,6 +14,7 @@ namespace UMLRazor.Pages.Customers
         public ShowCustomersModel(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
+     
         }
         public void OnGet()
         {

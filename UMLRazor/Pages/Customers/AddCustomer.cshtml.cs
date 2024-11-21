@@ -19,6 +19,16 @@ namespace UMLRazor.Pages.Customers
         [BindProperty] //Two way binding
         public Customer Customer { get; set; }
 
+
+        [BindProperty] //Two way binding
+        public string Name { get; set; }
+
+        [BindProperty] //Two way binding
+        public string Address { get; set; }
+        [BindProperty] //Two way binding
+        public string Mobile { get; set; }
+
+
         public AddCustomerModel(ICustomerRepository customerRepository, IWebHostEnvironment webHost)
         {
             _repo = customerRepository;
@@ -47,7 +57,7 @@ namespace UMLRazor.Pages.Customers
                 Customer.CustomerImage = ProcessUploadedFile();
             }
 
-
+            _repo.AddCustomer2(Name, Mobile, Address );
             _repo.AddCustomer(Customer);
             return RedirectToPage("ShowCustomers");
         }

@@ -1,0 +1,16 @@
+﻿@page
+@model UMLRazor.Pages.Orders.CreateOrderModel
+@{
+    ViewData["Title"] = "Create Order";
+}
+<h1>Select Customer</h1>
+
+<form method="post" asp-page-handler="Customer">
+<p>
+    Mobile : <input type="text" asp-for="SearchCustomerMobile" />
+    <input type="submit" value="Search customer" />
+</p>
+</form>
+
+
+<h1>Add MenuItem to Order</h1>

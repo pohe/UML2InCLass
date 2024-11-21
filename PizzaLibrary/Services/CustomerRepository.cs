@@ -21,6 +21,8 @@ namespace PizzaLibrary.Services
             _customers = MockData.CustomerData;
         }
 
+        
+
         public List<Customer> GetAllMembers()
         {
             List<Customer> result = new List<Customer>();
@@ -32,6 +34,15 @@ namespace PizzaLibrary.Services
                 }
             }
             return result;
+        }
+
+        public void AddCustomer2(string name, string mobile, string address)
+        {
+            if (!_customers.ContainsKey(mobile))
+            {
+                Customer c = new Customer(name, mobile, address);
+                _customers.Add(mobile, c);
+            }
         }
 
         public void AddCustomer(Customer customer)

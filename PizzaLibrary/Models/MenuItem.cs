@@ -12,7 +12,6 @@ namespace PizzaLibrary.Models
     {
         private static int _counter=0;
         private int _no;
-
         public MenuItem()
         {
             
