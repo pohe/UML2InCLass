@@ -23,3 +23,15 @@
 
 
 <h1>Add MenuItem to Order</h1>
+<form method="post" asp-page-handler="AddToOrder">
+    <label>MenuItems</label>
+    <select id="ChosenMenuItem" name="ChosenMenuItem"  
+        asp-for="@Model.ChosenMenuItem"
+        asp-items="@Model.MenuItemSelectList">
+
+    </select>
+    <input type="number" asp-for="@Model.Amount" />
+    <textarea asp-for="@Model.Comment" cols="120">
+    </textarea>
+    <input type="submit" value="AddToOrder" />
+</form>
