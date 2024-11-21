@@ -12,5 +12,14 @@
 </p>
 </form>
 
+@{
+    if( @Model.TheCustomer != null)
+    {
+        <h3>@Model.TheCustomer.Name</h3>
+        <h3>@Model.TheCustomer.Mobile</h3>
+    }
+
+}
+
 
 <h1>Add MenuItem to Order</h1>
