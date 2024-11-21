@@ -51,7 +51,7 @@ namespace PizzaLibrary.Models
             double accessoriesTotal = 0;
             foreach (var accessories in _accessories)
             {
-                accessoriesTotal = accessoriesTotal + accessories.Price;
+               // accessoriesTotal = accessoriesTotal + accessories.Price;
             }
             return _amount * _menuItem.Price + accessoriesTotal;
         }
