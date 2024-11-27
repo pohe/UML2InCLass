@@ -8,7 +8,8 @@ namespace UMLRazor.Pages.Customers
     public class ShowCustomersModel : PageModel
     {
         private ICustomerRepository _customerRepository;
-
+        [BindProperty(SupportsGet = true)]
+        public string FilterCriteria { get; set; }
         public List<Customer> Customers { get; private set; }
 
         public ShowCustomersModel(ICustomerRepository customerRepository)
@@ -18,7 +19,14 @@ namespace UMLRazor.Pages.Customers
         }
         public void OnGet()
         {
-            Customers =_customerRepository.GetAll();
+            if (!string.IsNullOrEmpty(FilterCriteria))
+            {
+                Customers = _customerRepository.FilterCustomers(FilterCriteria);
+            }
+            else
+            {
+                Customers = _customerRepository.GetAll();
+            }
         }
     }
 }

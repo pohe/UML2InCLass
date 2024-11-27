@@ -10,7 +10,10 @@
 <p>
     <a asp-page="AddCustomer" >Add New Customer</a>
 </p>
-
+<form>
+    search: <input type="text" asp-for="@Model.FilterCriteria" />
+    <input type="submit" value="Filter" />
+</form>
 <table class="table">
     <thead>
         <tr>

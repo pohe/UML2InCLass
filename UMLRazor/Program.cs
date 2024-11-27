@@ -7,8 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<ICustomerRepository, CustomerRepository>();
 builder.Services.AddSingleton<IMenuItemRepository, MenuItemRepository>();
-//builder.Services.AddSingleton<ICustomerRepository, CustomerRepositoryDB>();
+builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
 builder.Services.AddSingleton<IShoppingBasket, ShoppingBasket>();
+builder.Services.AddSingleton<IAccessoriesRepository, AccessoriesRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

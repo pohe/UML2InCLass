@@ -119,5 +119,19 @@ namespace PizzaLibrary.Services
             }
         }
 
+        public List<Customer> FilterCustomers(string name)
+        {
+            List<Customer> filteredList = new List<Customer>();
+            foreach (var cu in _customers.Values)
+            {
+                if (cu.Name.Contains(name))
+                {
+                    filteredList.Add(cu);
+                }
+            }
+            return filteredList;
+
+        }
+
     }
 }

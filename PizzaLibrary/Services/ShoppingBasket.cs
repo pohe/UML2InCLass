@@ -12,11 +12,21 @@ namespace PizzaLibrary.Services
     {
         private List<OrderLine> _orderLines;
 
+        public int Count { get { return _orderLines.Count; } }
+
+        public Customer CurrentCustomer { get; set; }
+        public bool ToBeDelivered { get; set; }
 
         public ShoppingBasket()
         {
             _orderLines = new List<OrderLine>();
         }
+
+        public void ClearAll()
+        {
+            _orderLines = new List<OrderLine>();
+        }
+
         public void AddOrderLine(OrderLine orderLine)
         {
             _orderLines.Add(orderLine);
@@ -26,5 +36,27 @@ namespace PizzaLibrary.Services
         {
             return _orderLines;
         }
+
+        public void RemoveOrderLine(int id)
+        {
+            OrderLine? orderLineToBeDeleted = GetOrderLineById(id);
+            if (orderLineToBeDeleted != null)
+            {
+                _orderLines.Remove(orderLineToBeDeleted);
+            }
+        }
+        public OrderLine? GetOrderLineById(int id)
+        {
+            foreach (OrderLine ol in _orderLines)
+            {
+                if (ol.Id == id)
+                {
+                    return ol;
+                }
+            }
+            return null;
+        }
+
+        
     }
 }

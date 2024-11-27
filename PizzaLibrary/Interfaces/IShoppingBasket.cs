@@ -12,5 +12,12 @@ namespace PizzaLibrary.Interfaces
         List<OrderLine> GetAll();
         void AddOrderLine(OrderLine orderLine);
 
+        void RemoveOrderLine(int id);
+        public int Count { get; }
+
+        public Customer CurrentCustomer { get; set; }
+        public void ClearAll();
+        public OrderLine? GetOrderLineById(int id);
+        bool ToBeDelivered { get; set; }
     }
 }

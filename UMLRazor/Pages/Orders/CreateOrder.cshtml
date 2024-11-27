@@ -1,4 +1,5 @@
 ﻿@page
+@using PizzaLibrary.Models
 @model UMLRazor.Pages.Orders.CreateOrderModel
 @{
     ViewData["Title"] = "Create Order";
@@ -8,19 +9,21 @@
 <form method="post" asp-page-handler="Customer">
 <p>
     Mobile : <input type="text" asp-for="SearchCustomerMobile" />
-    <input type="submit" value="Search customer" />
+        <input type="submit" value="Search customer" class="btn btn-primary btn-group-lg pull-right" />
+        <a asp-page="/Customers/AddCustomer" class="btn btn-primary btn-group-lg pull-right">Add Customer</a>
 </p>
 </form>
-
+<h3><span class="text-danger">@Model.MessageCustomer</span></h3>
 @{
-    if( @Model.TheCustomer != null)
+    if (Model.TheCustomer != null)
     {
-        <h3>@Model.TheCustomer.Name</h3>
-        <h3>@Model.TheCustomer.Mobile</h3>
+        <p>
+            Name: @Model.TheCustomer.Name<br />
+            Address: @Model.TheCustomer.Address <br />
+            Mobile: @Model.TheCustomer.Mobile <br />
+        </p>
     }
-
 }
-
 
 <h1>Add MenuItem to Order</h1>
 <form method="post" asp-page-handler="AddToOrder">
@@ -33,5 +36,73 @@
     <input type="number" asp-for="@Model.Amount" />
     <textarea asp-for="@Model.Comment" cols="120">
     </textarea>
-    <input type="submit" value="AddToOrder" />
+    <input type="submit" value="AddToOrder" class="btn btn-primary" />
+</form>
+<h3><span class="text-danger">@Model.MessageOrder</span></h3>
+<h1>Shopping Basket</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Comment</th>
+            <th>Extra</th>
+            <th>Sub total</th>
+            <th>Add extra</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (@Model.OrderLines != null)
+        {
+            @foreach (var item in Model.OrderLines)
+            {
+                <tr>
+                    <td>@item.MenuItem.Name</td>
+                    <td>@item.Amount</td>
+                    <td>@item.Comment</td>
+                    <td>
+                        @{
+                            foreach (Accessory asseccory in item.GetAllAccessory())
+                            {
+                                <div>@asseccory.Name</div>
+                            }
+                        }
+                    </td>
+                    <td>kr. @item.SubTotal()</td>
+                    <td>
+                       <form method="post">
+                            <select id="ChoosenAsseccory" name="ChoosenAsseccory" asp-for="@Model.ChoosenAsseccory"
+                                    asp-items="@Model.AsseccorySelectList"></select>
+                            <button asp-page-handler="AddAccessories" asp-route-orderLineId=@item.Id
+                                    class="btn btn-primary btn-group-lg pull-right">
+                                Extra
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post">
+                            <button asp-page-handler="DeleteOrderLine" asp-route-orderLineId=@item.Id
+                                    class="btn btn-danger btn-group-lg pull-right">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<hr />
+<form method="post" asp-page-handler="CreateOrder">
+    <label class="custom-control-label">Where to eat</label>
+    <br>
+    @foreach (string where in Model.WhereToEat)
+    {
+        <input type="radio" asp-for="@Model.Delivery" value="@where" /> @where
+        <br />
+    }
+    <input type="submit" value="Create order" class="btn btn-primary btn-group-lg pull-right" />
 </form>

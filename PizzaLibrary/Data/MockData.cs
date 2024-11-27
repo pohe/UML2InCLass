@@ -32,6 +32,19 @@ namespace PizzaLibrary.Data
             new MenuItem("Italiana", 97, "Tomat, ost, løg & kødsauce", MenuType.PIZZECLASSSICHE)
 
             };
+
+        private static List<Accessory> _AccessoryData =
+           new List<Accessory>()
+           {
+                new Accessory("Ananas", 10),
+                new Accessory("Artiskok", 10),
+                new Accessory("løg", 10),
+                new Accessory("Ost", 15),
+                new Accessory("Gorgonzola", 20),
+                new Accessory("pepperoni", 20),
+                new Accessory("kødstrimler", 20),
+                new Accessory("rejer", 20)
+           };
         #endregion
 
         #region Properties
@@ -40,11 +53,16 @@ namespace PizzaLibrary.Data
             get { return _customerData; }
         }
 
-
         public static List<MenuItem> MenuItemData
         {
             get { return _menuItemData; }
         }
+
+        public static List<Accessory> AccessoryData
+        {
+            get { return _AccessoryData; }
+        }
+
         #endregion
     }
 

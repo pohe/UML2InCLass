@@ -13,10 +13,15 @@ namespace PizzaLibrary.Models
     public class Customer : ICustomer
     {
         private int _id;
-        private static int _counter = 0; 
+        private static int _counter = 0;
+
+        [Required(ErrorMessage = "Write your address"), DisplayName("Home address")]
         public string Address { get; set;}
         public bool ClubMember { get; set; }
         public int Id { get { return _id; } set { _id = value; } }
+
+        [Required(ErrorMessage = "Write your phone number"), DisplayName("Mobile number")]
+        [StringLength(18, ErrorMessage = "Phonenumber can not be longer than 18 chars")]
         public string Mobile { get; set; }
 
         [Required(ErrorMessage = "Write your name"), MaxLength(30), DisplayName("Customer name")]
