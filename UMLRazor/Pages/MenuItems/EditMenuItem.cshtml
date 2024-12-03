@@ -1,0 +1,38 @@
+﻿@page
+@using PizzaLibrary.Models
+@model UMLRazor.Pages.MenuItems.EditMenuItemModel
+@{
+    ViewData["Title"] = "Edit MenuItem";
+}
+<h1>Edit MenuItem</h1>
+
+<form method="post">
+
+    <div class="form-group">
+        <label asp-for="@Model.No" class="control-label"></label>
+        <input asp-for="@Model.No" readonly class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Name" class="control-label"></label>
+        <input asp-for="@Model.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Description" class="control-label"></label>
+        <input asp-for="@Model.Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Price" class="control-label"></label>
+        <input asp-for="@Model.Price" class="form-control" />
+    </div>
+    @foreach (var mType in Html.GetEnumSelectList<MenuType>())
+    {
+        <input type="radio" asp-for="@Model.UpDatedMenuType" value="@mType.Value" checked="@(Model.TheMenuType.ToString() == mType.Text ? true:false)" /> @mType.Text
+        <br />
+    }
+    <div class="formgroup">
+        <input type="submit" asp-page-handler="Edit" value="Update" class="btn btn-primary" />
+    </div>
+</form>
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>

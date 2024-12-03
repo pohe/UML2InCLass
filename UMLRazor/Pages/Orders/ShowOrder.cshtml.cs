@@ -11,7 +11,7 @@ namespace UMLRazor.Pages.Orders
         private IOrderRepository _oRepo;
         public CompanyInfoSingleton TheCompanyInfo { get; set; }
         public Order Order { get; set; }
-        public ShowOrderModel(IOrderRepository orderRepository)
+        public ShowOrderModel(IOrderRepository orderRepository/*, CompanyInfo companyInfo*/)
         {
             _oRepo = orderRepository;
             TheCompanyInfo = CompanyInfoSingleton.GetInstance();

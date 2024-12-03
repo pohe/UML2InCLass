@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +15,8 @@ namespace PizzaLibrary.Models
         private int _no;
         public MenuItem()
         {
-            
+            _counter++;
+            _no = _counter;
         }
         public MenuItem(string name, double price, string description, MenuType menuType)
         {

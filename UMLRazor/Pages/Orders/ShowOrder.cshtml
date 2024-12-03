@@ -1,4 +1,5 @@
 ﻿@page
+@using PizzaLibrary.Models
 @model UMLRazor.Pages.Orders.ShowOrderModel
 @{
     ViewData["Title"] = "Receipt";
@@ -7,3 +8,82 @@
 <h1>Show order</h1>
 
 <hr />
+
+<p>
+    Name:@Model.TheCompanyInfo.Name<br />
+    Mobile: @Model.TheCompanyInfo.Mobile<br />
+    Cvr:@Model.TheCompanyInfo.CVR<br />
+    Mobile:@Model.TheCompanyInfo.Mobile<br />
+    Moms:@Model.TheCompanyInfo.Vat<br />
+</p>
+<hr />
+<h2>Date:@Model.Order.Created</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Comment</th>
+            <th>Extra</th>
+            <th>Sub total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (@Model.Order.GetAllOrderLines() != null)
+        {
+            @foreach (var item in @Model.Order.GetAllOrderLines())
+            {
+                <tr>
+                    <td>@item.MenuItem.Name</td>
+                    <td>@item.Amount</td>
+                    <td>@item.Comment</td>
+                    <td>
+                        @{
+                            foreach (Accessory asseccory in item.GetAllAccessory())
+                            {
+                                <div>@asseccory.Name</div>
+                            }
+                        }
+                    </td>
+                    <td>kr. @item.SubTotal()</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+@{
+    double brutto = @Model.Order.CalculateTotal();
+    double moms = brutto * 20.0 / 100.0;
+    double netto = brutto - moms;
+
+    string eatWhere = "";
+    if (@Model.Order.ToBeDelivered)
+    {
+        eatWhere = $"Leveres til {@Model.Order.Customer.Address} omkostninger {@Model.TheCompanyInfo.DeliveryCost} kr.";
+    }
+    else
+    {
+        eatWhere = "Spiser i restaturanten";
+    }
+}
+<p>
+    Brutto: @brutto kr.<br />
+    Moms: @moms kr.<br />
+    Netto: @netto kr.<br />
+    @eatWhere
+</p>
+<hr />
+<p>
+    Name: @Model.Order.Customer.Name<br />
+    Address: @Model.Order.Customer.Address <br />
+    Mobile: @Model.Order.Customer.Mobile <br />
+</p>
+
+@{
+    string adr = "";
+    if (@Model.Order.ToBeDelivered)
+    {
+        adr = @Model.Order.Customer.Address;
+    }
+}
+
